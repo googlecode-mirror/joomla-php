@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="content">
+	<name>PHP Content Plugin</name>
+	<author>Fiji Web Design</author>
+	<creationDate>June 17, 2008</creationDate>
+	<copyright>(C) 2007 Fiji Web Design. All rights reserved.</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>gabe@fijiwebdesign.com</authorEmail>
+	<authorUrl>www.fijiwebdsign.com</authorUrl>
+	<version>0.1</version>
+	<description>
+	<![CDATA[
+	This mambot you to create custom PHP mambots by placing your custom PHP into the mambot/plugin parameters.
+	]]>
+	</description>
+	<files>
+		<filename plugin="botphp_content">botphp_content.php</filename>
+	</files>
+	<params>
+	
+		<param name="onprepare_php" type="textarea" default="&lt;?php /* some PHP code here */ ?&gt;" label="On Prepare" description="Defined are $published, &amp;$article, &amp;$params, &amp;page=0." cols="60" rows="30" />
+		<param name="@spacer" type="spacer" />
+		
+		<param name="aftertitle_php" type="textarea" default="&lt;?php /* some PHP code here */ ?&gt;" label="After Title" description="Defined are &amp;$article, &amp;$params, $page=0." cols="60" rows="30" />
+		<param name="@spacer" type="spacer" />
+				
+		<param name="beforecontent_php" type="textarea" default="&lt;?php /* some PHP code here */ ?&gt;" label="Before Content" description="Defined are &amp;$article, &amp;$params, $page=0." cols="60" rows="30" />
+		<param name="@spacer" type="spacer" />
+		
+		<param name="aftercontent_php" type="textarea" default="&lt;?php /* some PHP code here */ ?&gt;" label="After Content" description="Defined are &amp;$article, &amp;$params, $page=0." cols="60" rows="30" />
+		<param name="@spacer" type="spacer" />
+		
+	</params>
+</install>
