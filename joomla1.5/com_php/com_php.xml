@@ -73,7 +73,7 @@
 	<administration>
 	
 		<!-- Administration Menu Section -->
-		<menu img="components/com_php/images/parent_menu_icon.png">PHP Pages</menu>
+		<menu>PHP Pages</menu>
 		<submenu>
 			<!-- Note that all & must be escaped to &amp; for the file to be valid XML and be parsed by the installer -->
 			<menu link="option=com_php&amp;task=index">Manage Pages</menu>
