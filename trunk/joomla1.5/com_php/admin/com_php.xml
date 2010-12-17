@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install SYSTEM "http://dev.joomla.org/xml/1.5/component-install.dtd">
+<install type="component" version="1.5.0">
+	<name>PHP</name>
+	<!-- The following elements are optional and free of formatting conttraints -->
+	<creationDate>June 2008</creationDate>
+	<author>Fiji Web Design</author>
+	<authorEmail>gabe@fijiwebdesign.com</authorEmail>
+	<authorUrl>http://www.fijiwebdesign.com/</authorUrl>
+	<copyright>(C) 2007 Fiji Web Design. All rights reserved.</copyright>
+	<license>GNU/GPL</license>
+	<!--  The version string is recorded in the components table -->
+	<version>0.0.1</version>
+	<!-- The description is optional and defaults to the name -->
+	<description><![CDATA[
+	<p>
+	Creates Custom PHP Pages.
+	</p>
+	<h3>Change Log</h3>
+	<h4>0.1</h4>
+	<ul>
+	<li><b>Initial Build</li>
+	</ul>
+	]]></description>
+
+	<!-- Custom Install Script to execute 
+	<installfile>install.eventlist.php</installfile>
+	-->
+	<!-- Custom Uninstall Script to execute 
+	<uninstallfile>uninstall.eventlist.php</uninstallfile>
+  -->
+	<!-- Install Database Section 
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">install.mysql.utf8.sql</file>
+			<file driver="mysql">install.mysql.nonutf8.sql</file>
+		</sql>
+	</install>
+	-->
+	<!-- Uninstall Database Section 
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">uninstall.mysql.utf8.sql</file>
+			<file driver="mysql">uninstall.mysql.nonutf8.sql</file>
+		</sql>
+	</uninstall>
+-->
+	<!-- Site Main File Copy Section-->
+	<files>
+<filename>php.html.php</filename>
+<filename>images/loading.gif</filename>
+<filename>images/phplogo.jpg</filename>
+<filename>php.php</filename>
+<filename>js/mootools.js</filename>
+<filename>js/ie_pngfix.js</filename>
+<filename>includes/json.pear.php</filename>
+<filename>files/example.html</filename>
+<filename>files/example.php</filename>
+<filename>files/index.html</filename>
+	</files>
+	 
+	<!-- Site Main Language File Copy Section 
+	<languages>
+		<language tag="en-GB">en-GB.com_php.ini</language>
+	</languages>
+	-->
+	
+	<!-- Site Main Media File Copy Section 
+	<media destination="com_helloworld">
+		<filename>helloworld.png</filename>
+	</media>
+-->
+	<administration>
+	
+		<!-- Administration Menu Section -->
+		<menu>PHP Pages</menu>
+		<submenu>
+			<!-- Note that all & must be escaped to &amp; for the file to be valid XML and be parsed by the installer -->
+			<menu link="option=com_php&amp;task=index">Manage Pages</menu>
+			<menu link="option=com_php&amp;task=help">Help</menu>
+			<menu link="option=com_php&amp;task=about">About</menu>
+		</submenu>
+		
+		<!-- Administration Main File Copy Section -->
+		<!-- Note the folder attribute: This attribute describes the folder
+			to copy FROM in the package to install therefore files copied
+			in this section are copied from /admin/ in the package -->
+		<files folder="admin">
+<filename>toolbar.php.php</filename>
+<filename>uninstall.php.php</filename>
+<filename>admin.php.html.php</filename>
+<filename>config.xml</filename>
+<filename>toolbar.php.html.php</filename>
+<filename>admin.php.php</filename>
+<filename>install.php.php</filename>
+		</files>
+		
+		<!-- Administration Language File Copy Section 
+		<languages folder="admin">
+			<language tag="en-GB">en-GB.com_php.ini</language>
+		</languages>
+		-->
+		
+		<!-- Administration Main Media File Copy Section -->
+		<media folder="admin" destination="com_helloworld/images">
+	  	<filename>images/parent_menu_icon.png</filename>
+		</media>
+		-->
+	</administration>
+</install>

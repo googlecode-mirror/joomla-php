@@ -41,9 +41,16 @@ switch ($task) {
 	case 'help':
 	com_php_tasks::help();
 	break;
+	case 'config':
+	com_php_tasks::config();
+	break;
 	default:
 	com_php_tasks::index();
 	break;
+}
+
+if (!JRequest::getVar('no_html')) {
+	com_php_adminHTML::footer();
 }
 
 /**
@@ -65,10 +72,11 @@ class com_php_tasks {
 		$dh = opendir($dir);
 		while($el = readdir($dh)) {
 			$path = $dir.'/'.$el;
-			if (is_file($path)) {
+			if ($el[0] != '.' && is_file($path)) {
 				$files[] = $el;
 			}
 		}
+		
 		
 		// render html
 		com_php_adminHTML::index($files);
@@ -120,9 +128,9 @@ class com_php_tasks {
 		}
 		
 		if (com_php_tasks::_save($file, $content)) {
-			$mainframe->redirect('index2.php?option=com_php', 'Changes Saved');
+			$mainframe->redirect('index2.php?option=com_php&task=index', 'Changes Saved');
 		} else {
-			$mainframe->redirect('index2.php?option=com_php', 'Error: File Could not be saved.');
+			$mainframe->redirect('index2.php?option=com_php&task=index', 'Error: File Could not be saved.');
 		}
 	}
 	
@@ -220,10 +228,31 @@ class com_php_tasks {
 		
 		$res = unlink($path);
 		if (!$res) {
-			$mainframe->redirect('index2.php?option=com_php', 'Error: The File could not be deleted.');
+			$mainframe->redirect('index2.php?option=com_php', 'The File could not be deleted.', 'error');
 		} else {
 			$mainframe->redirect('index2.php?option=com_php', 'File was deleted.');
 		}
+		
+	}
+	
+	/**
+	 * Handles the Saving and deleting of configuration
+	 */
+	function config() {
+		// older php has not json support
+		require_once(JPATH_ADMINISTRATOR . '/components/com_php/compat.php');
+		
+		$config = JRequest::getVar('config');
+		$config_path = JPATH_SITE . '/components/com_php/files/.config';
+		
+		// save the json file, or read it based on passed parameter
+		if ($config) {
+			file_put_contents($config_path, $config);
+		} else {
+			$config = file_get_contents($config_path);
+		}
+		
+		echo $config;
 		
 	}
 	
